@@ -16,16 +16,16 @@ jobs:
 
         steps:
         - name : checkout repo
-          uses : actions/checkout@V4
+          uses : actions/checkout@v4
  
         - name : install python
-          uses : actions/setup-python@V2
+          uses : actions/setup-python@v3
           with:
-            python-version: "3.10"
+           python-version: "3.10"
 
         - name : install dependencies
           run:
-           pip install flask
+           pip install flask pytest
            pip install pytest
 
         - name: run test
@@ -40,10 +40,10 @@ jobs:
 
         - name: builder docker image
           run: |
-           docker build -t francis664/myflask-app:latest
+           docker build -t francis644/myflask-app:latest .
 
         - name: push to docker hub
           run: |
-           docker push francis664/myflask-app:latest        
+           docker push francis644/myflask-app:latest        
 
 
